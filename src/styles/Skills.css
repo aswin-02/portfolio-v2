@@ -1,0 +1,53 @@
+
+
+.skill-head{
+  font-family: "League Spartan", sans-serif;
+  position: absolute;
+}
+
+.skills-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 5rem 0;
+  justify-content: center;
+  align-items: center;
+  background-color: #141414;
+  margin-top: 1.4%;
+}
+
+.skills-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.skills-carousel::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  background-color: #141414;
+  margin-top: 1.6%;
+  padding: 75px 15px 15px 15px;
+}
+
+.skill-item {
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 100px;
+  display: flex;
+  justify-items: center;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: bold;
+}
