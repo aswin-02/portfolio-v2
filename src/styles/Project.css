@@ -3,4 +3,35 @@
     position: absolute;
     top: -200px;
     left: -225px;
-}  
+}
+
+.slanted-box {
+    position: relative;
+    background-image: url('../assets/mask.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+.slanted-box img{
+    height: 16em;
+    margin-left: -10px;
+}
+
+.card-footer{
+    align-items: flex-end;
+    margin-top: auto;
+    margin-bottom: 15px;
+}
+
+.card-footer h3{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: larger;
+}
+.card-footer span{
+    font-family: "Poppins", sans-serif;
+    text-align: justify;
+    font-size: small;
+}

@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
-import Java from '../assets/java.svg';
-import Spring from '../assets/spring-boot.svg';
-import Js from '../assets/javascript.svg';
-import PHP from '../assets/php.svg';
-import Laravel from '../assets/laravel.svg';
-import JQuery from '../assets/jquery.svg';
-import MySQL from '../assets/mysql.svg';
-import Tailwind from '../assets/tailwind.svg';
-import Bootstrap from '../assets/bootstrap.svg';
+import Java from '../assets/skills/java.svg';
+import Spring from '../assets/skills/spring-boot.svg';
+import Js from '../assets/skills/javascript.svg';
+import PHP from '../assets/skills/php.svg';
+import Laravel from '../assets/skills/laravel.svg';
+import JQuery from '../assets/skills/jquery.svg';
+import MySQL from '../assets/skills/mysql.svg';
+import Tailwind from '../assets/skills/tailwind.svg';
+import Bootstrap from '../assets/skills/bootstrap.svg';
 import '../styles/Skills.css';
 
 export default function Skills() {
