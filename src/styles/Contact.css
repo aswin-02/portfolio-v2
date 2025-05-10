@@ -1,0 +1,36 @@
+.contact-header h1{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.5em;
+}
+
+.gradient-6{
+    position: absolute;
+    top: -100px;
+    left: -120px;
+}
+
+.gradient-7{
+    position: absolute;
+    bottom: -200px;
+    right: -200px;
+}
+
+.connect-img{
+}
+
+.terminal-img{
+    margin-top: 10%;
+    margin-left: 10%;
+    z-index: 1;
+}
+
+.terminal-text{
+    font-family: "Courier Prime", monospace;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: -25%;
+    margin-left: 20%;
+    font-size: 1.2em;
+}

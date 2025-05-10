@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Project from './components/Project';
+import Contact from './components/Contact';
 import './styles/App.css';
 
 export default function AppLayout() {
@@ -43,11 +44,17 @@ export default function AppLayout() {
         <Skills/>
         {/* Project Content */}
         <Project/>
+        {/* Contact Content */}
+        <Contact/>
 
       <div>
         <a href="#" className='text-light scroll-to-top'>
           <i className="fa-solid fa-chevron-up"></i>
         </a>
+      </div>
+
+      <div className='copyright w-full p-2 bg-[#dcff2f] text-center'>
+        <span>Designed and developed by <span className='bg-[#141414] text-[#dcff2f] p-1'>myself</span></span>
       </div>
       {/* Overlay for mobile when sidebar is open */}
       {isMobile && sidebarOpen && (

@@ -1,43 +1,64 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import '../styles/Header.css'
+import '../styles/Header.css';
 
 const navItems = [
   { label: 'Home' },
   { label: 'About' },
   { label: 'Skills' },
   { label: 'Projects' },
-  { label: 'Contact' }
+  { label: 'Contact' },
 ];
 
 export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState('Home'); // Track active nav item
-  
-  // Check if the window is mobile
+  const [activeItem, setActiveItem] = useState('Home');
+
+  // Resize listener for responsiveness
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    handleResize(); // Run once on mount to check the window size
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
     window.addEventListener('resize', handleResize);
-    
-    return () => {
-      window.removeEventListener('resize', handleResize); // Clean up the event listener
-    };
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
-  
-  // Handle navigation click
+
+  // Scroll spy logic
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5, // Trigger when 60% visible
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          const matchedItem = navItems.find(item => item.label.toLowerCase() === sectionId);
+          if (matchedItem) {
+            setActiveItem(matchedItem.label);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    navItems.forEach(item => {
+      const section = document.getElementById(item.label.toLowerCase());
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const handleNavClick = (label) => {
     setActiveItem(label);
     if (isMobile) setSidebarOpen(false);
   };
-  
+
   return (
     <div className="relative z-2">
-      {/* Mobile Hamburger Menu Button */}
       {isMobile && (
         <button
           className="fixed top-4 left-4 z-50 p-2 rounded-md bg-[#dcff2f] shadow-md"
@@ -46,8 +67,7 @@ export default function Header() {
           {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       )}
-      
-      {/* Sidebar Navigation */}
+
       <nav
         className={`
           fixed left-0 top-0 h-full 
@@ -56,8 +76,7 @@ export default function Header() {
           w-13 bg-[#141414] shadow-lg flex flex-col
         `}
       >
-        <div className={`flex flex-col justify-start
-          ${isMobile ? 'pt-15' : 'pt-7'} items-center h-full`}>
+        <div className={`flex flex-col justify-start ${isMobile ? 'pt-15' : 'pt-7'} items-center h-full`}>
           <div className="flex flex-col gap-12 py-4">
             {navItems.map((item, index) => (
               <div key={index} className="vertical-nav-item">
@@ -74,10 +93,9 @@ export default function Header() {
           </div>
         </div>
         <div className='flex flex-col pb-5 justify-end items-center h-full'>
-        <a href='#'>
-          {/* <i className="text-[#dcff2f] text-3xl fa-brands fa-github"></i> */}
-          <i className="text-[#dcff2f] text-3xl fa-brands fa-linkedin"></i>
-        </a>
+          <a href='#'>
+            <i className="text-[#dcff2f] text-3xl fa-brands fa-linkedin"></i>
+          </a>
         </div>
       </nav>
     </div>
