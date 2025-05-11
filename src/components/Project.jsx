@@ -42,7 +42,7 @@ export default function Project(){
                         <div className='card-footer w-full'>
                             <img src={EMS} alt="" />
                             <div className='btn-container px-5 text-right'>
-                                <a href="" className='btn btn-dark view-btn'>view</a>
+                                <a className='btn btn-dark view-btn'>view</a>
                             </div>
                             <h1 style={{marginTop:'6%',lineHeight:'normal'}}>Employee Management System</h1>    
                         </div>
@@ -52,7 +52,7 @@ export default function Project(){
                         <div className='card-footer w-full'>
                             <img src={Inventory} alt="" />
                             <div className='btn-container px-5 text-right'>
-                                <a href="" className='btn btn-dark view-btn'>view</a>
+                                <a className='btn btn-dark view-btn'>view</a>
                             </div>
                             <h1 style={{marginTop:'6%',lineHeight:'normal'}}>Inventory Management System</h1>    
                         </div>
@@ -62,7 +62,7 @@ export default function Project(){
                         <div className='card-footer w-full'>
                             <img src={Vehicle} alt="" />
                             <div className='btn-container px-5 text-right'>
-                                <a href="" className='btn btn-dark view-btn'>view</a>
+                                <a className='btn btn-dark view-btn'>view</a>
                             </div>
                             <h1 style={{marginTop:'6%',lineHeight:'normal'}}>Vehicle Detection</h1>    
                         </div>
@@ -74,7 +74,7 @@ export default function Project(){
                         <div className='card-footer w-full'>
                             <img src={Movie} alt="" />
                             <div className='btn-container px-5 text-right'>
-                                <a href="" className='btn btn-dark view-btn'>view</a>
+                                <a className='btn btn-dark view-btn'>view</a>
                             </div>
                             <h1 style={{marginTop:'6%',lineHeight:'normal'}}>Image Prediction</h1>    
                         </div>
@@ -84,7 +84,7 @@ export default function Project(){
                         <div className='card-footer w-full'>
                             <img src={ImageRec} alt="" />
                             <div className='btn-container px-5 text-right'>
-                                <a href="" className='btn btn-dark view-btn'>view</a>
+                                <a className='btn btn-dark view-btn'>view</a>
                             </div>
                             <h1 style={{marginTop:'6%',lineHeight:'normal'}}>Movie Fetcher</h1>    
                         </div>

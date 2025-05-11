@@ -36,11 +36,12 @@ img{
     z-index: 2;
 }
 
-.gradient-2{
+.gradient-2 {
     position: absolute;
-    top: 500px;
-    left: -300px;
+    top: 440px;
+    left: -700px;
 }
+
 
 .copyright{
     font-family: "Poppins", sans-serif;

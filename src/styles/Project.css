@@ -59,6 +59,7 @@
   }
 
   .view-btn{
+    cursor: pointer;
     font-family: "League Spartan", sans-serif;
     background-color: #1a1a1a;
     color: #c6ff00;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Home, User, Settings, HelpCircle } from 'lucide-react';
 import Gradient from './assets/gradient.png';
 import Header from './components/Header';
@@ -8,10 +8,29 @@ import Skills from './components/Skills';
 import Project from './components/Project';
 import Contact from './components/Contact';
 import './styles/App.css';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AppLayout() {
   const [isMobile, setIsMobile] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const gradientRef = useRef(null);
+
+  useEffect(() => {
+    gsap.to(gradientRef.current, {
+      x: window.innerWidth + 600, // move from left offscreen to right offscreen
+      ease: 'sine.inOut', 
+      scrollTrigger: {
+        trigger: gradientRef.current,
+        start: 'top bottom', // when element hits bottom of viewport
+        end: 'bottom top',   // when element scrolls out at top
+        scrub: 1.4,         // makes it scroll-based
+      }
+    });
+  }, []);
+  
 
   // Check if the screen is mobile size
   useEffect(() => {
@@ -32,7 +51,7 @@ export default function AppLayout() {
 
   return (
     <main className="bg-[#1a1a1a] relative">
-        <img src={Gradient} alt="" className='gradient-2' />
+        <img src={Gradient} alt="" className="gradient-2" ref={gradientRef} />
         
         <Header/>
         

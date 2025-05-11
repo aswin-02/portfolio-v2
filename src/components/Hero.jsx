@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { gsap } from 'gsap';
 import Rectangle from '../assets/rectangle.svg';
 import Gradient from '../assets/gradient.png';
 import Profile from '../assets/profile.png';
@@ -8,11 +9,35 @@ export default function Hero() {
     const words = ["Davinci", "a Web Developer"];
     const period = 2000;
 
+    const ref1 = useRef(null);
+    const ref2 = useRef(null);
+  
     const [isMobile, setIsMobile] = useState(false);
     const [text, setText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
     const [loopNum, setLoopNum] = useState(0);
     const [delta, setDelta] = useState(200 - Math.random() * 100);
+
+    useEffect(() => {
+        // Rectangle 1 - slow, high, smooth
+        gsap.to(ref1.current, {
+          y: -20,
+          duration: 2,
+          ease: 'sine.inOut',
+          repeat: -1,
+          yoyo: true
+        });
+    
+        // Rectangle 2 - faster, lower, offset start
+        gsap.to(ref2.current, {
+          y: -15,
+          duration: 2,
+          ease: 'sine.inOut',
+          repeat: -1,
+          yoyo: true,
+          delay: 1
+        });
+      }, []);
 
     useEffect(() => {
         const handleResize = () => {
@@ -56,9 +81,9 @@ export default function Hero() {
         <main className="flex-1 p-6 overflow-auto" id='home'>
             <div className="hero-container mx-auto px-4 sm:px-6 lg:px-15 w-full max-w-screen-xl relative">
                 {!isMobile && (
-                    <img src={Rectangle} alt="" className='rect-1' />
+                    <img src={Rectangle} alt="" className='rect-1' ref={ref1}/>
                 )}
-                <img src={Rectangle} alt="" className='rect-2' />
+                <img src={Rectangle} alt="" className='rect-2' ref={ref2}/>
                 <img src={Gradient} alt="" className='gradient-1' />
                 <img src={Profile} alt="" className='profile-img' />
 
